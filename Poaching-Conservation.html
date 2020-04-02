@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Poaching & Conservation</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+
+</head>
+<body>
+
+<style>
+
+    .map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+		.map-overlay {
+			font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+			position: absolute;
+			width: 25%;
+			top: 0;
+			left: 0;
+			padding: 10px;
+		}
+
+		.map-overlay .map-overlay-inner {
+			background-color: #fff;
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+			border-radius: 3px;
+			padding: 10px;
+			margin-bottom: 400px;
+		}
+		#features2 {
+			top: 0px;
+			height: 100px;
+			margin-top: 10px;
+			width: 300px;
+		}
+		.map-overlay h1 {
+			line-height: 24px;
+			display: block;
+			margin: 3px 10px 10px;
+		}
+
+		.map-overlay-new {
+		  position: absolute;
+		  bottom: 10px;
+		  right: 0;
+		  background: #fff;
+		  margin-right:20px;
+		  font-family: Arial, sans-serif;
+		  overflow: auto;
+		  border-radius: 3px;
+		}
+		#features {
+		  top: 0px;
+		  height: 120px;
+		  margin-top: 450px;
+		  width: 300px;
+		}
+		.map-overlay-new h2 {
+			line-height: 24px;
+			display: block;
+			margin: 12px 10px 3px;
+		}
+
+.map-overlay2 {
+position: absolute;
+bottom: 10px;
+right: 0;
+background: rgba(255, 255, 255, 0.9);
+margin-right: 1050px;
+font-family: Arial, sans-serif;
+overflow: auto;
+border-radius: 0px;
+}
+#legend {
+padding: 5px;
+box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+line-height: 25px;
+height: 200px;
+margin-bottom: 50px;
+width: 200px;
+}
+.legend-key {
+display: inline-block;
+border-radius: 0%;
+width: 15px;
+height: 15px;
+margin-right: 5px;
+}
+.map-overlay2 h3 {
+	line-height: 18px;
+	display: block;
+	margin: 0px 30px 15px;
+}
+.map-overlay2 h5 {
+	line-height: 18px;
+	display: block;
+	margin: 0px 30px 100px;
+}
+
+
+.map-overlay-text {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+#features3 {
+  top: 0;
+  height: 180px;
+  margin-top: 260px;
+  width: 220px;
+}
+.map-overlay-text h3 {
+	line-height: 20px;
+	display: block;
+	margin: 5px 15px 3px;
+}
+.map-overlay-text p {
+	line-height: 18px;
+	display: block;
+	margin: 5px 15px 3px;
+}
+</style>
+
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
+<link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css"
+    type="text/css"
+/>
+<div id="comparison-container">
+    <div id="before" class="map"></div>
+    <div id="after" class="map"></div>
+</div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1Ijoidmlja3lqMjAiLCJhIjoiY2s2cmU2a2Z6MDU3OTNkbGExcTBhanlsNCJ9.AnDT5Fbe1lZxtUukEMhabA';
+    var beforeMap = new mapboxgl.Map({
+        container: 'before',
+        style: 'mapbox://styles/vickyj20/ck8i7u2vt0hhy1ipfthw3aeri',
+        center: [48.0085, 8.7832],
+        zoom: 2
+    });
+
+    var afterMap = new mapboxgl.Map({
+        container: 'after',
+        style: 'mapbox://styles/vickyj20/ck8i8x4lm0ip11invdezbr5q1',
+        center: [48.0085, 8.7832],
+        zoom: 2
+    });
+
+    // A selector or reference to HTML element
+    var container = '#comparison-container';
+
+    var map = new mapboxgl.Compare(beforeMap, afterMap, container, {
+        // Set this to enable comparing two maps by mouse movement:
+        // mousemove: true
+    });
+</script>
+<div id="map"></div>
+
+<div class="map-overlay top">
+	<div class="map-overlay-inner" id="features2">
+		<h1>
+			Countries Involved in the Poaching Trade of the Southern White Rhinos, 2010-2015
+		</h1>
+</div>
+</div>
+<div class="map-overlay-new" id="features">
+		<h2>Countries with Rhino Conservation Legislation and/or Initiatives, 2010-2015
+			</h2>
+		</div>
+	<div class="map-overlay2">
+		<div id="legend" class="legend">
+		</div>
+	</div>
+	<div class="map-overlay-text" id="features3">
+		<h3>Initiatives and Legislation includes:</h3>
+		<p>-In-Situ Conservation Management</p>
+		<p>-Community-Based Program Conservations</p>
+		<p>-Increasing Capacity Buildings</p>
+</div>
+
+
+	<script>
+	var layers = ['<strong>Total Number of Rhinos Seized/Poached in 2010-2015</strong>', '1-5','6-11', '25-35', '75-120','', '<strong>Countries Involved in Conservation</strong>'];
+	var colors = ['', '#fdc9c9', '#f73b3b', '#dd0808', '#860909','', '#774a82'];
+
+
+					for (i = 0; i < layers.length; i++) {
+						var layer = layers[i];
+						var color = colors[i];
+						var item = document.createElement('div');
+						var key = document.createElement('span');
+						key.className = 'legend-key';
+						key.style.backgroundColor = color;
+
+						var value = document.createElement('span');
+						value.innerHTML = layer;
+						item.appendChild(key);
+						item.appendChild(value);
+						legend.appendChild(item);
+					}
+</script>
+
+</body>
+</html>
